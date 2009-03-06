@@ -4,7 +4,7 @@
 " Maintainer:   Hallison Batista <email@hallisonbatista.com> 
 " Last Change:  26 Fev 2009 
 " License:      Public Domain
-" Version:      1.0
+" Version:      1.0.0
 
 highlight clear
 
