@@ -24,8 +24,8 @@ set cursorline
 " ============
   highlight Cursor          ctermfg=NONE        guifg=#000000     ctermbg=NONE        guibg=#FFFFFF
  "CursorIM      
-  highlight CursorColumn    ctermfg=NONE        guifg=NONE        ctermbg=DarkGray    guibg=#373737
-  highlight CursorLine      ctermfg=NONE        guifg=NONE        ctermbg=DarkGray    guibg=#373737
+  highlight CursorColumn    ctermfg=NONE        guifg=NONE        ctermbg=DarkGray    guibg=#0F0F0F
+  highlight CursorLine      ctermfg=NONE        guifg=NONE        ctermbg=DarkGray    guibg=#0F0F0F
 
 " Directory style
 " ===============
@@ -46,7 +46,7 @@ set cursorline
   "highlight FoldColumn
   "highlight SignColumn
   "highlight IncSearch
-  highlight LineNr          ctermfg=Gray        guifg=#777777     ctermbg=DarkGray    guibg=#373737 
+  highlight LineNr          ctermfg=DarkGray    guifg=#777777     ctermbg=DarkGray    guibg=#0F0F0F 
   "highlight MatchParen
   "highlight ModeMsg
   "highlight MoreMsg
@@ -55,8 +55,8 @@ set cursorline
 
 " Popup menu style
 " ================
-  highlight Pmenu           ctermfg=Gray        guifg=#FFFFFF     ctermbg=DarkGray    guibg=#373737
-  highlight PmenuSel        ctermfg=White       guifg=#373737     ctermbg=Gray        guibg=#FFFFFF
+  highlight Pmenu           ctermfg=Gray        guifg=#FFFFFF     ctermbg=DarkGray    guibg=#0F0F0F
+  highlight PmenuSel        ctermfg=White       guifg=#0F0F0F     ctermbg=Gray        guibg=#FFFFFF
   highlight PmenuSbar       ctermfg=NONE        guifg=NONE        ctermbg=DarkGray    guibg=#777777
   highlight PmenuThumb      ctermfg=Gray        guifg=#CCCCCC     ctermbg=NONE        guibg=NONE
 
@@ -73,18 +73,18 @@ set cursorline
 
 " Status style
 " ============
-  highlight StatusLine      ctermfg=DarkGray    guifg=#373737     ctermbg=Gray        guibg=#777777   cterm=bold  gui=bold
-  highlight StatusLineNC    ctermfg=DarkGray    guifg=#777777     ctermbg=DarkGray    guibg=#373737   cterm=bold  gui=bold
+  highlight StatusLine      ctermfg=DarkGray    guifg=#0F0F0F     ctermbg=Gray        guibg=#777777   cterm=bold  gui=bold
+  highlight StatusLineNC    ctermfg=DarkGray    guifg=#777777     ctermbg=DarkGray    guibg=#0F0F0F   cterm=bold  gui=bold
 
  "highlight TabLine
  "highlight TabLineFill
  "highlight TabLineSel
 
-  highlight Title           ctermfg=Gray        guifg=#373737
+  highlight Title           ctermfg=Gray        guifg=#0F0F0F
   highlight Visual          ctermfg=NONE        guifg=NONE        ctermbg=DarkBlue    guibg=#505064
   highlight VisualNOS       ctermfg=NONE        guifg=NONE        ctermbg=DarkGreen   guibg=#506450
   highlight WarningMsg      ctermfg=White       guifg=#FFFFFF     ctermbg=DarkRed     guibg=#964B4B
-  highlight WildMenu        ctermfg=NONE        guifg=#777777     ctermbg=DarkGray    guibg=#373737
+  highlight WildMenu        ctermfg=NONE        guifg=#777777     ctermbg=DarkGray    guibg=#0F0F0F
 
 " Win32 specific style
 " --------------------
@@ -157,6 +157,45 @@ set cursorline
   "highlight Error      
   "highlight Todo       
 
+" Style for Shell Syntax
+" ----------------------
+  "highlight shTest
+  "highlight shCase
+  "highlight shCaseExSingleQuote
+  "highlight shCaseEsac
+  "highlight shDo
+  "highlight shExpr
+  "highlight shFor
+  "highlight shIf
+  "highlight shSubSh
+  "highlight shComma
+  "highlight shDerefVarArray
+  "highlight shDblBrace
+  "highlight shSpecialVar
+  "highlight shDblParen
+  "highlight shCurlyIn
+  "highlight bashSpecialVariables
+  "highlight bashStatement
+  "highlight bashAdminStatement
+  "highlight kshSpecialVariables
+  "highlight kshStatement
+  "highlight shSetIdentifier
+  "highlight shFunctionTwo
+  "highlight shFunctionStart
+  "highlight shFunctionOne
+  "highlight shDerefPattern
+  "highlight shDerefEscape
+  "highlight shDerefPPSleft
+  "highlight shDerefPPSright
+  "highlight shCaseEsacSync
+  "highlight shDoSync
+  "highlight shForSync
+  "highlight shIfSync
+  "highlight shUntilSync
+  "highlight shWhileSync
+
+" Style for Ruby Syntax
+" ---------------------
   highlight rubyBlockParameter        guifg=#FFFFFF
   highlight rubyClass                 guifg=#FFFFFF
   highlight rubyConstant              guifg=#DA4939
@@ -166,11 +205,13 @@ set cursorline
   highlight rubyPredefinedConstant    guifg=#DA4939
   highlight rubyPseudoVariable        guifg=#FFC66D
   highlight rubyStringDelimiter       guifg=#A5C261
-  
+
+" Style for XML and (X)HTML Syntax
+  highlight xmlTag                    guifg=#E8BF6A
+  highlight xmlTagName                guifg=#E8BF6A
+  highlight xmlEndTag                 guifg=#E8BF6A
+
   highlight link htmlTag              xmlTag
   highlight link htmlTagName          xmlTagName
   highlight link htmlEndTag           xmlEndTag
 
-  highlight xmlTag                    guifg=#E8BF6A
-  highlight xmlTagName                guifg=#E8BF6A
-  highlight xmlEndTag                 guifg=#E8BF6A
