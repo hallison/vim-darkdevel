@@ -1,10 +1,10 @@
-" Vim color scheme
+" Darkdevel Vim color scheme
 "
 " Name:         darkdevel.vim
 " Maintainer:   Hallison Batista <email@hallisonbatista.com> 
-" Last Change:  26 Fev 2009 
+" Last Change:  2009-03-17 
 " License:      Public Domain
-" Version:      1.0.0
+" Version:      1.1.1
 
 highlight clear
 
@@ -23,13 +23,13 @@ set cursorline
 " Cursor style
 " ============
   highlight Cursor          ctermfg=NONE        guifg=#000000     ctermbg=NONE        guibg=#FFFFFF
- "CursorIM      
+  "highlight CursorIM      
   highlight CursorColumn    ctermfg=NONE        guifg=NONE        ctermbg=DarkGray    guibg=#0F0F0F
   highlight CursorLine      ctermfg=NONE        guifg=NONE        ctermbg=DarkGray    guibg=#0F0F0F
 
 " Directory style
 " ===============
- "highlight Directory       ctermbg=NONE        guifg=NONE        ctermbg=NONE        guibg=NONE      cterm=bold    gui=underline
+  "highlight Directory       ctermbg=NONE        guifg=NONE        ctermbg=NONE        guibg=NONE      cterm=bold    gui=underline
 
 " Diff text style
 " ===============
@@ -40,50 +40,51 @@ set cursorline
 
 " Text and message style
 " ======================
-  "highlight ErrorMsg
+  highlight ErrorMsg        ctermfg=Red         guifg=#FF0000     ctermbg=NONE        guibg=NONE
+  highlight WarningMsg      ctermfg=Yellow      guifg=Yellow      ctermbg=NONE        guibg=NONE
+  highlight MoreMsg         ctermfg=Green       guifg=#00FF00     ctermbg=NONE        guibg=NONE
+  highlight link ModeMsg    WarningMsg
   "highlight VertSplit
-  "highlight Folded
+  highlight Folded          ctermfg=Gray        guifg=#777777     ctermbg=DarkGray    guibg=#0F0F0F
   "highlight FoldColumn
   "highlight SignColumn
   "highlight IncSearch
   highlight LineNr          ctermfg=DarkGray    guifg=#777777     ctermbg=DarkGray    guibg=#0F0F0F 
   "highlight MatchParen
-  "highlight ModeMsg
-  "highlight MoreMsg
   highlight NonText         ctermfg=Gray        guifg=#777777     ctermbg=NONE        guibg=#000000
-  highlight Normal          ctermfg=Gray        guifg=#CCCCCC     ctermbg=NONE        guibg=#000000
+  highlight Normal          ctermfg=Gray        guifg=#F0F0F0     ctermbg=NONE        guibg=#000000
 
 " Popup menu style
 " ================
   highlight Pmenu           ctermfg=Gray        guifg=#FFFFFF     ctermbg=DarkGray    guibg=#0F0F0F
-  highlight PmenuSel        ctermfg=White       guifg=#0F0F0F     ctermbg=Gray        guibg=#FFFFFF
+  highlight PmenuSel        ctermfg=White       guifg=#0F0F0F     ctermbg=Gray        guibg=#F0F0F0
   highlight PmenuSbar       ctermfg=NONE        guifg=NONE        ctermbg=DarkGray    guibg=#777777
-  highlight PmenuThumb      ctermfg=Gray        guifg=#CCCCCC     ctermbg=NONE        guibg=NONE
+  highlight PmenuThumb      ctermfg=Gray        guifg=#F0F0F0     ctermbg=NONE        guibg=NONE
 
- "highlight Question
- "highlight Search
- "highlight SpecialKey
+  "highlight Question
+  "highlight Search
+  "highlight SpecialKey
+  "highlight Error                     guifg=#FFFFFF   guibg=#990000
 
 " Spelling style
 " ==============
- "highlight SpellBad
- "highlight SpellCap
- "highlight SpellLocal
- "highlight SpellRare
+  "highlight SpellBad
+  "highlight SpellCap
+  "highlight SpellLocal
+  "highlight SpellRare
 
 " Status style
 " ============
   highlight StatusLine      ctermfg=DarkGray    guifg=#0F0F0F     ctermbg=Gray        guibg=#777777   cterm=bold  gui=bold
   highlight StatusLineNC    ctermfg=DarkGray    guifg=#777777     ctermbg=DarkGray    guibg=#0F0F0F   cterm=bold  gui=bold
 
- "highlight TabLine
- "highlight TabLineFill
- "highlight TabLineSel
+  "highlight TabLine
+  "highlight TabLineFill
+  "highlight TabLineSel
 
   highlight Title           ctermfg=Gray        guifg=#0F0F0F
-  highlight Visual          ctermfg=NONE        guifg=NONE        ctermbg=DarkBlue    guibg=#505064
+  highlight Visual          ctermfg=Gray        guifg=#FFFFFF     ctermbg=DarkBlue    guibg=#505064
   highlight VisualNOS       ctermfg=NONE        guifg=NONE        ctermbg=DarkGreen   guibg=#506450
-  highlight WarningMsg      ctermfg=White       guifg=#FFFFFF     ctermbg=DarkRed     guibg=#964B4B
   highlight WildMenu        ctermfg=NONE        guifg=#777777     ctermbg=DarkGray    guibg=#0F0F0F
 
 " Win32 specific style
@@ -113,7 +114,6 @@ set cursorline
 
 " Style for statements
 " ---------------------
-  "Statement any statement
   highlight Statement         ctermfg=Brown       guifg=#C89664     gui=NONE
   highlight link Conditional  Statement
   highlight link Repeat       Statement
@@ -136,10 +136,6 @@ set cursorline
   highlight link StorageClass Type
   highlight link Structure    Type
   highlight link Typedef      Type
-
-
-  highlight Error                     guifg=#FFFFFF   guibg=#990000
-  highlight Search                    guibg=#FFFF00
 
 " Style for special symbols
 " -------------------------

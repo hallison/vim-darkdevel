@@ -3,7 +3,7 @@
 declare pkg_name=darkdevel
 declare pkg_base=$(dirname "$0")
 declare pkg_version=$(git tag | sort | tail -n 1)
-declare pkg_file=${pkg_name}-${pkg_version}
+declare pkg_file="${pkg_name}-${pkg_version#v}.zip"
 declare prefix=${1:-'.vim'}
 
 function format {
@@ -12,19 +12,19 @@ function format {
 
 function cleanup {
   pushd $prefix
-  for file in .gitignore $0; do
+  for file in .gitignore $0 *.png; do
     rm -v $file
   done
   popd
 }
 
 function compress {
-  zip -r $pkg_name-$pkg_version.zip $prefix
+  zip -r $pkg_file $prefix
   rm -rf $prefix
 }
 
-echo "Formating package ...";         format
-echo "Removing temporary files ...";  cleanup
-echo "Compressing package ...";       compress
-echo "Done!"
+echo "** Formating package ...";              format
+echo "** Removing temporary files ...";       cleanup
+echo "** Compressing package $pkg_file ...";  compress
+echo "** Done!"
 exit 0
