@@ -17,8 +17,10 @@ let g:colors_name = "darkdevel"
 " General settings
 " ================
 set background=dark
-set cursorline
-"set cursorcolumn
+if v:version > 700
+  set cursorline
+  "set cursorcolumn
+endif
 
 " Cursor style
 " ============
