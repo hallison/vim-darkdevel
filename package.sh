@@ -12,7 +12,8 @@ function format {
 
 function cleanup {
   pushd $prefix
-  for file in .gitignore $0 *.png; do
+  local ignoreds=(.gitignore $0 *.png README.*)
+  for file in ${ignoreds[@]}; do
     rm -v $file
   done
   popd
