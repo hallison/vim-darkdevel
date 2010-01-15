@@ -78,7 +78,6 @@ let g:Darkdevel.comment.guibg   = 'NONE'
 
   "highlight Question
   "highlight Search
-  "highlight SpecialKey
   "highlight Error                     guifg=#FFFFFF   guibg=#990000
 
 " Spelling style
@@ -154,7 +153,7 @@ let g:Darkdevel.comment.guibg   = 'NONE'
 
 " Style for special symbols
 " -------------------------
-  "highlight Special         
+  highlight SpecialKey      ctermfg=DarkGray    guifg=#0F0F0F
   "highlight SpecialChar     
   "highlight Tag             
   "highlight Delimiter       
@@ -222,7 +221,11 @@ let g:Darkdevel.comment.guibg   = 'NONE'
   highlight xmlTagName                guifg=#E8BF6A
   highlight xmlEndTag                 guifg=#E8BF6A
 
+  highlight htmlTitle                 cterm=bold,standout gui=bold
+
   highlight link htmlTag              xmlTag
   highlight link htmlTagName          xmlTagName
   highlight link htmlEndTag           xmlEndTag
+
+  highlight link htmlH1               htmlTitle
 

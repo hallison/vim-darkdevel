@@ -1,2 +1,3 @@
-*.swp
-*.zip
+.*.sw[p-z]
+*.tmp
+*.vba.gz
