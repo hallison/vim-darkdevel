@@ -34,6 +34,7 @@ task push {
 
 desc push:news "Push all changes to hosts"
 task push:news {
+  status "Pushing new changes to ${news// /, }"
   for remote in ${news}; do
     run git push $remote news
   done
@@ -41,6 +42,7 @@ task push:news {
 
 desc push:release "Push a new release to hosts"
 task push:release {
+  status "Pushing new release to ${hosts// /, }"
   for remote in ${hosts}; do
     git push --tags $remote master
   done
