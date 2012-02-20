@@ -1,3 +1,4 @@
 .*.sw[p-z]
 *.tmp
-*.vba.gz
+*.vba*
+pkg/**
