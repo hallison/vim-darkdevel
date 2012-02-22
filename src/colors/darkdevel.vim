@@ -131,6 +131,7 @@ highlight link PreCondit    Include
 highlight link StorageClass Type
 highlight link Structure    Type
 highlight link Typedef      Type
+highlight link Special      SpecialKey
 
 highlight link rubyBlockParameter        Normal
 highlight link rubyClass                 Normal
