@@ -1,0 +1,8 @@
+{
+  "name" : "b:plugin.name",
+  "version" : "b:plugin.version",
+  "author" : "b:plugin.author",
+  "repository" : {"type": "git", "url": "b:plugin.scm"},
+  "dependencies" : {},
+  "description" : "b:plugin.remark"
+}
