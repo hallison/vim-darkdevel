@@ -1,10 +1,10 @@
 " Darkdevel Vim color scheme
 "
-" Name:    darkdevel.vim
-" Autor:   Hallison Batista <hallison.batista@gmail.com> 
-" Release: 2009-03-17 
-" License: Public Domain
-" Version: 1.1.1
+" Name:    b:plugin.name
+" Autor:   b:plugin.author
+" Version: b:plugin.version
+" Release: b:plugin.release
+" License: Vim License
 
 highlight clear
 
