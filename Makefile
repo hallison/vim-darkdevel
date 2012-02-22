@@ -34,7 +34,7 @@ uninstall:
 
 clean:
 	rm -rf $(basedir)/*
-	rm -rf $(vimball)
+	rm -rf $(vimball)*
 
 dist: $(vimball)
 	gzip $(vimball)
