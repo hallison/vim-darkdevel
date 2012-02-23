@@ -1,10 +1,10 @@
 " Darkdevel Vim color scheme
 "
-" Name:         darkdevel.vim
-" Maintainer:   Hallison Batista <email@hallisonbatista.com> 
-" Last Change:  2009-03-17 
-" License:      Public Domain
-" Version:      1.1.1
+" Name:    darkdevel
+" Autor:   Hallison Batista <hallison.batista@gmail.com>
+" Version: v1.2.0
+" Release: 2010-01-15 18:21:11 -0400
+" License: Vim License
 
 highlight clear
 
@@ -12,220 +12,206 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let g:colors_name = "darkdevel"
+let g:colors_name   = "darkdevel"
+let s:config        = {}
+let s:config.colors = &t_Co
+
 
 " General settings
 " ================
-set background=dark
+"set background=dark
 if v:version > 700
   set cursorline
   "set cursorcolumn
 endif
 
-let g:Darkdevel = {}
-let g:Darkdevel.cursor = {}
-let g:Darkdevel.cursor.ctermfg = 'NONE'
-let g:Darkdevel.cursor.guifg   = '#000000'
-let g:Darkdevel.cursor.ctermbg = 'NONE'
-let g:Darkdevel.cursor.guibg   = '#FFFFFF'
+let s:config.plain     = "term=NONE   cterm=NONE   gui=NONE"
+let s:config.bold      = "term=bold   cterm=bold   gui=bold"
+let s:config.emphasis  = "term=italic cterm=italic gui=italic"
+let s:config.underline = "term=underline cterm=underline gui=underline"
 
-let g:Darkdevel.comment = {}
-let g:Darkdevel.comment.ctermfg = 'DarkGray'
-let g:Darkdevel.comment.guifg   = '#646464'
-let g:Darkdevel.comment.ctermbg = 'NONE'
-let g:Darkdevel.comment.guibg   = 'NONE'
+let s:brightness = { 'cterm': 'White'    , 'gui': '#FFFFFF' }
+let s:darkness   = { 'cterm': 'Black'    , 'gui': '#000000' }
+let s:backward   = { 'cterm': 'DarkGray' , 'gui': '#121212' }
+let s:forefront  = { 'cterm': 'Gray'     , 'gui': '#767676' }
 
-" Cursor style
-" ============
-  highlight Cursor          ctermfg=NONE        guifg=#000000     ctermbg=NONE        guibg=#FFFFFF
-  "highlight CursorIM      
-  highlight CursorColumn    ctermfg=NONE        guifg=NONE        ctermbg=DarkGray    guibg=#0F0F0F
-  highlight CursorLine      ctermfg=NONE        guifg=NONE        ctermbg=DarkGray    guibg=#0F0F0F
+let s:processor  = { 'cterm': 'DarkBlue' , 'gui': '#000087' }
+let s:identifier = { 'cterm': 'DarkCyan' , 'gui': '#00afaf' }
+let s:statement  = { 'cterm': 'Brown'    , 'gui': '#af5f00' }
+let s:keyword    = { 'cterm': 'Brown'    , 'gui': '#5f5f00' }
+let s:type       = { 'cterm': 'DarkRed'  , 'gui': '#af0000' }
+let s:operator   = { 'cterm': 'Green'    , 'gui': '#005f00' }
+let s:function   = { 'cterm': 'Yellow'   , 'gui': '#dfaf00' }
+let s:string     = { 'cterm': 'DarkGreen', 'gui': '#5faf5f' }
 
-" Directory style
-" ===============
-  "highlight Directory       ctermbg=NONE        guifg=NONE        ctermbg=NONE        guibg=NONE      cterm=bold    gui=underline
+let s:message    = { 'cterm': 'Green'    , 'gui': '#afff00' }
+let s:error      = { 'cterm': 'Red'      , 'gui': '#df0000' }
+let s:warning    = { 'cterm': 'Yellow'   , 'gui': '#ffdf00' }
 
-" Diff text style
-" ===============
-  highlight DiffAdd         ctermfg=DarkGreen   guifg=#32BE32     ctermbg=NONE        guibg=NONE
-  "highlight DiffChange  
-  highlight DiffDelete      ctermfg=DarkRed     guifg=#BE3232     ctermbg=NONE        guibg=NONE
-  "highlight DiffText  
+if s:config.colors == 256
+  let s:brightness.cterm = 255
+  let s:darkness.cterm   = 0
+  let s:backward.cterm   = 233
+  let s:forefront.cterm  = 244
 
-" Text and message style
-" ======================
-  highlight ErrorMsg        ctermfg=Red         guifg=#FF0000     ctermbg=NONE        guibg=NONE
-  highlight WarningMsg      ctermfg=Yellow      guifg=Yellow      ctermbg=NONE        guibg=NONE
-  highlight MoreMsg         ctermfg=Green       guifg=#00FF00     ctermbg=NONE        guibg=NONE
-  highlight link ModeMsg    WarningMsg
-  "highlight VertSplit
-  highlight Folded          ctermfg=Gray        guifg=#777777     ctermbg=DarkGray    guibg=#0F0F0F
-  "highlight FoldColumn
-  "highlight SignColumn
-  "highlight IncSearch
-  highlight LineNr          ctermfg=DarkGray    guifg=#777777     ctermbg=DarkGray    guibg=#0F0F0F 
-  "highlight MatchParen
-  highlight NonText         ctermfg=Gray        guifg=#777777     ctermbg=NONE        guibg=#000000
-  highlight Normal          ctermfg=Gray        guifg=#F0F0F0     ctermbg=NONE        guibg=#000000
+  let s:processor.cterm  = 18
+  let s:identifier.cterm = 37
+  let s:statement.cterm  = 130
+  let s:keyword.cterm    = 58
+  let s:type.cterm       = 124
+  let s:operator.cterm   = 22
+  let s:function.cterm   = 178
+  let s:string.cterm     = 71
 
-" Popup menu style
-" ================
-  highlight Pmenu           ctermfg=Gray        guifg=#FFFFFF     ctermbg=DarkGray    guibg=#0F0F0F
-  highlight PmenuSel        ctermfg=White       guifg=#0F0F0F     ctermbg=Gray        guibg=#F0F0F0
-  highlight PmenuSbar       ctermfg=NONE        guifg=NONE        ctermbg=DarkGray    guibg=#777777
-  highlight PmenuThumb      ctermfg=Gray        guifg=#F0F0F0     ctermbg=NONE        guibg=NONE
+  let s:message.cterm    = 34
+  let s:error.cterm      = 160
+  let s:warning.cterm    = 220
+endif
 
-  "highlight Question
-  "highlight Search
-  "highlight Error                     guifg=#FFFFFF   guibg=#990000
+execute "highlight Cursor       ".s:config.plain." ctermfg=".s:darkness.cterm  ." ctermbg=".s:brightness.cterm." guifg=".s:darkness.gui   ." guibg=".s:brightness.gui
+execute "highlight CursorColumn ".s:config.plain." ctermfg=NONE                   ctermbg=".s:backward.cterm  ." guifg=NONE                  guibg=".s:backward.gui
+execute "highlight CursorLine   ".s:config.plain." ctermfg=NONE                   ctermbg=".s:backward.cterm  ." guifg=NONE                  guibg=".s:backward.gui
+execute "highlight DiffAdd      ".s:config.plain." ctermfg=".s:message.cterm   ." ctermbg=NONE                   guifg=".s:message.gui    ." guibg=NONE"
+execute "highlight DiffDelete   ".s:config.plain." ctermfg=".s:error.cterm     ." ctermbg=NONE                   guifg=".s:error.gui      ." guibg=NONE"
+execute "highlight DiffChange   ".s:config.plain." ctermfg=".s:warning.cterm   ." ctermbg=NONE                   guifg=".s:warning.gui    ." guifg=NONE"
+execute "highlight ErrorMsg     ".s:config.plain." ctermfg=".s:error.cterm     ." ctermbg=NONE                   guifg=".s:error.gui      ." guibg=NONE"
+execute "highlight WarningMsg   ".s:config.plain." ctermfg=".s:warning.cterm   ." ctermbg=NONE                   guifg=".s:warning.gui    ." guibg=NONE"
+execute "highlight ModeMsg      ".s:config.plain." ctermfg=".s:brightness.cterm." ctermbg=NONE                   guifg=".s:brightness.gui ." guibg=NONE"
+execute "highlight MoreMsg      ".s:config.plain." ctermfg=".s:message.cterm   ." ctermbg=NONE                   guifg=".s:message.cterm  ." guibg=NONE"
+execute "highlight VertSplit    ".s:config.plain." ctermfg=".s:forefront.cterm ." ctermbg=".s:forefront.cterm ." guifg=".s:forefront.gui  ." guibg=".s:forefront.gui
+execute "highlight Folded       ".s:config.plain." ctermfg=".s:forefront.cterm ." ctermbg=".s:backward.cterm  ." guifg=".s:forefront.gui  ." guibg=".s:backward.gui
+execute "highlight LineNr       ".s:config.plain." ctermfg=".s:forefront.cterm ." ctermbg=".s:backward.cterm  ." guifg=".s:forefront.gui  ." guibg=".s:backward.gui
+execute "highlight NonText      ".s:config.plain." ctermfg=".s:forefront.cterm ." ctermbg=NONE                   guifg=".s:forefront.gui  ." guibg=".s:darkness.gui
+execute "highlight Normal       ".s:config.plain." ctermfg=".s:brightness.cterm." ctermbg=NONE                  guifg=".s:brightness.gui  ." guibg=".s:darkness.gui
+execute "highlight Pmenu        ".s:config.plain." ctermfg=".s:forefront.cterm ." ctermbg=".s:backward.cterm  ." guifg=".s:brightness.gui ." guibg=".s:backward.gui
+execute "highlight PmenuSel     ".s:config.plain." ctermfg=".s:backward.cterm  ." ctermbg=".s:forefront.cterm ." guifg=".s:backward.gui   ." guibg=".s:forefront.gui
+execute "highlight PmenuSbar    ".s:config.plain." ctermfg=NONE                   ctermbg=".s:backward.cterm  ." guifg=NONE                  guibg=".s:forefront.gui
+execute "highlight PmenuThumb   ".s:config.plain." ctermfg=".s:forefront.cterm ." ctermbg=NONE                   guifg=".s:forefront.gui  ." guibg=NONE"
+execute "highlight StatusLine   ".s:config.bold ." ctermfg=".s:backward.cterm  ." ctermbg=".s:forefront.cterm ." guifg=".s:backward.gui   ." guibg=".s:forefront.gui.""
+execute "highlight StatusLineNC ".s:config.bold ." ctermfg=NONE                   ctermbg=".s:backward.cterm  ." guifg=".s:forefront.gui  ." guibg=".s:backward.gui
+execute "highlight Title        ".s:config.plain." ctermfg=".s:forefront.cterm ." ctermbg=NONE                   guifg=".s:forefront.gui  ." guibg=NONE"
+execute "highlight Visual       ".s:config.plain." ctermfg=".s:brightness.cterm." ctermbg=".s:processor.cterm ." guifg=".s:brightness.gui ." guibg=".s:processor.gui
+execute "highlight VisualNOS    ".s:config.plain." ctermfg=NONE                   ctermbg=".s:string.cterm    ." guifg=NONE                  guibg=".s:string.gui
+execute "highlight WildMenu     ".s:config.plain." ctermfg=NONE                   ctermbg=".s:backward.cterm  ." guifg=".s:forefront.gui  ." guibg=".s:backward.gui
+execute "highlight Constant     ".s:config.plain." ctermfg=".s:identifier.cterm." ctermbg=NONE                   guifg=".s:identifier.gui ." guibg=NONE"
+execute "highlight Identifier   ".s:config.plain." ctermfg=".s:identifier.cterm." ctermbg=NONE                   guifg=".s:identifier.gui ." guibg=NONE"
+execute "highlight Statement    ".s:config.plain." ctermfg=".s:statement.cterm ." ctermbg=NONE                   guifg=".s:statement.gui  ." guibg=NONE"
+execute "highlight Keyword      ".s:config.plain." ctermfg=".s:keyword.cterm   ." ctermbg=NONE                   guifg=".s:keyword.gui    ." guibg=NONE"
+execute "highlight Function     ".s:config.plain." ctermfg=".s:function.cterm  ." ctermbg=NONE                   guifg=".s:function.gui   ." guibg=NONE"
+execute "highlight Comment      ".s:config.plain." ctermfg=".s:forefront.cterm ." ctermbg=NONE                   guifg=".s:forefront.gui  ." guibg=NONE"
+execute "highlight Type         ".s:config.plain." ctermfg=".s:type.cterm      ." ctermbg=NONE                   guifg=".s:type.gui       ." guibg=NONE"
+execute "highlight Operator     ".s:config.plain." ctermfg=".s:operator.cterm  ." ctermbg=NONE                   guifg=".s:operator.gui   ." guibg=NONE"
+execute "highlight String       ".s:config.plain." ctermfg=".s:string.cterm    ." ctermbg=NONE                   guifg=".s:string.gui     ." guibg=NONE"
+execute "highlight Character    ".s:config.plain." ctermfg=".s:identifier.cterm." ctermbg=NONE                   guifg=".s:identifier.gui ." guibg=NONE"
+execute "highlight Number       ".s:config.plain." ctermfg=".s:string.cterm    ." ctermbg=NONE                   guifg=".s:string.gui     ." guibg=NONE"
+execute "highlight Boolean      ".s:config.plain." ctermfg=".s:identifier.cterm." ctermbg=NONE                   guifg=".s:identifier.gui ." guibg=NONE"
+execute "highlight Float        ".s:config.plain." ctermfg=".s:string.cterm    ." ctermbg=NONE                   guifg=".s:string.gui     ." guibg=NONE"
+execute "highlight PreProc      ".s:config.plain." ctermfg=".s:identifier.cterm." ctermbg=NONE                   guifg=".s:identifier.gui ." guibg=NONE"
+execute "highlight Include      ".s:config.plain." ctermfg=".s:statement.cterm ." ctermbg=NONE                   guifg=".s:statement.gui  ." guibg=NONE"
+execute "highlight SpecialKey   ".s:config.plain." ctermfg=".s:backward.cterm  ." ctermbg=NONE                   guifg=".s:backward.gui   ." guibg=NONE"
 
-" Spelling style
-" ==============
-  "highlight SpellBad
-  "highlight SpellCap
-  "highlight SpellLocal
-  "highlight SpellRare
+execute "highlight htmlTitle    ".s:config.bold
 
-" Status style
-" ============
-  highlight StatusLine      ctermfg=DarkGray    guifg=#0F0F0F     ctermbg=Gray        guibg=#777777   cterm=bold  gui=bold
-  highlight StatusLineNC    ctermfg=DarkGray    guifg=#777777     ctermbg=DarkGray    guibg=#0F0F0F   cterm=bold  gui=bold
+highlight link xmlTag       Statement
+highlight link xmlTagName   Statement
+highlight link xmlEndTag    Statement
 
-  "highlight TabLine
-  "highlight TabLineFill
-  "highlight TabLineSel
+highlight link htmlTag      xmlTag
+highlight link htmlTagName  xmlTagName
+highlight link htmlEndTag   xmlEndTag
+highlight link htmlH1       htmlTitle
 
-  highlight Title           ctermfg=Gray        guifg=#F0F0F0     ctermbg=NONE        guibg=NONE
-  highlight Visual          ctermfg=Gray        guifg=#FFFFFF     ctermbg=DarkBlue    guibg=#505064
-  highlight VisualNOS       ctermfg=NONE        guifg=NONE        ctermbg=DarkGreen   guibg=#506450
-  highlight WildMenu        ctermfg=NONE        guifg=#777777     ctermbg=DarkGray    guibg=#0F0F0F
+highlight link Conditional  Statement
+highlight link Repeat       Statement
+highlight link Label        Statement
+highlight link Exception    Statement
+highlight link Define       Include
+highlight link Macro        Include
+highlight link PreCondit    Include
+highlight link StorageClass Type
+highlight link Structure    Type
+highlight link Typedef      Type
+highlight link Special      SpecialKey
 
+highlight link rubyBlockParameter        Normal
+highlight link rubyClass                 Normal
+highlight link rubyConstant              Type
+highlight link rubyInstanceVariable      Identifier
+highlight link rubyInterpolation         Operator
+highlight link rubyLocalVariableOrMethod Identifier
+highlight link rubyPredefinedConstant    Type
+highlight link rubyPseudoVariable        Identifier
+highlight link rubyStringDelimiter       Operator
+highlight link rubyDoBlock               Statement
+highlight link rubyControl               Statement
+
+"highlight DiffText  
+"highlight CursorIM
+"highlight Directory
+"highlight FoldColumn
+"highlight SignColumn
+"highlight IncSearch
+"highlight MatchParen
+"highlight Question
+"highlight Search
+"highlight Error                     guifg=s:brightness.gui   guibg=#990000
+"highlight SpellBad
+"highlight SpellCap
+"highlight SpellLocal
+"highlight SpellRare
+"highlight TabLine
+"highlight TabLineFill
+"highlight TabLineSel
 " Win32 specific style
 " --------------------
-  "highlight Menu
-  "highlight Scrollbar
-  "highlight Tooltip
+"highlight Menu
+"highlight Scrollbar
+"highlight Tooltip
+"highlight SpecialChar     
+"highlight Tag             
+"highlight Delimiter       
+"highlight SpecialComment  
+"highlight Debug           
+"highlight Underlined 
+"highlight Ignore     
+"highlight Error      
+"highlight Todo       
+"highlight shTest
+"highlight shCase
+"highlight shCaseExSingleQuote
+"highlight shCaseEsac
+"highlight shDo
+"highlight shExpr
+"highlight shFor
+"highlight shIf
+"highlight shSubSh
+"highlight shComma
+"highlight shDerefVarArray
+"highlight shDblBrace
+"highlight shSpecialVar
+"highlight shDblParen
+"highlight shCurlyIn
+"highlight bashSpecialVariables
+"highlight bashStatement
+"highlight bashAdminStatement
+"highlight kshSpecialVariables
+"highlight kshStatement
+"highlight shSetIdentifier
+"highlight shFunctionTwo
+"highlight shFunctionStart
+"highlight shFunctionOne
+"highlight shDerefPattern
+"highlight shDerefEscape
+"highlight shDerefPPSleft
+"highlight shDerefPPSright
+"highlight shCaseEsacSync
+"highlight shDoSync
+"highlight shForSync
+"highlight shIfSync
+"highlight shUntilSync
+"highlight shWhileSync
 
-" Syntax style
-" ============
-
-" Style for constants
-" -------------------
-  highlight Constant          ctermfg=DarkRed     guifg=#6496C8
-  highlight String            ctermfg=DarkGreen   guifg=#64C896
-  highlight Character         ctermfg=DarkBlue    guifg=#6496C8
-  highlight Number            ctermfg=DarkGreen   guifg=#64C896
-  highlight Boolean           ctermfg=DarkBlue    guifg=#6496C8
-  highlight Float             ctermfg=DarkGreen   guifg=#64C896
-
-  highlight Comment           ctermfg=DarkGray    guifg=#646464     ctermbg=NONE      guibg=NONE
-
-" Style for identifier and variable names
-" ----------------------------------------
-  highlight Identifier        ctermfg=DarkCyan    guifg=#6496C8     gui=NONE
-  highlight Function          ctermfg=Yellow      guifg=#FFC864     gui=NONE
-
-" Style for statements
-" ---------------------
-  highlight Statement         ctermfg=Brown       guifg=#C89664     gui=NONE
-  highlight link Conditional  Statement
-  highlight link Repeat       Statement
-  highlight link Label        Statement
-  highlight Operator          ctermfg=Green       guifg=#64C864
-  highlight Keyword           ctermfg=DarkRed     guifg=#C86432
-  highlight link Exception    Statement
-
-" Style for generic preprocessor
-" ------------------------------
-  highlight PreProc           ctermfg=Gray        guifg=#DCDCDC     ctermbg=NONE      guibg=NONE
-  highlight Include           ctermfg=DarkRed     guifg=#C86432     ctermbg=NONE      guibg=NONE
-  highlight link Define       Include
-  highlight link Macro        Include
-  highlight link PreCondit    Include
-
-" Style for types and objects
-" ---------------------------
-  highlight Type              ctermfg=DarkRed     guifg=#DC4B32     gui=NONE
-  highlight link StorageClass Type
-  highlight link Structure    Type
-  highlight link Typedef      Type
-
-" Style for special symbols
-" -------------------------
-  highlight SpecialKey      ctermfg=DarkGray    guifg=#0F0F0F
-  "highlight SpecialChar     
-  "highlight Tag             
-  "highlight Delimiter       
-  "highlight SpecialComment  
-  "highlight Debug           
-
-" Style for text format
-" ---------------------
-  "highlight Underlined 
-  "highlight Ignore     
-  "highlight Error      
-  "highlight Todo       
-
-" Style for Shell Syntax
-" ----------------------
-  "highlight shTest
-  "highlight shCase
-  "highlight shCaseExSingleQuote
-  "highlight shCaseEsac
-  "highlight shDo
-  "highlight shExpr
-  "highlight shFor
-  "highlight shIf
-  "highlight shSubSh
-  "highlight shComma
-  "highlight shDerefVarArray
-  "highlight shDblBrace
-  "highlight shSpecialVar
-  "highlight shDblParen
-  "highlight shCurlyIn
-  "highlight bashSpecialVariables
-  "highlight bashStatement
-  "highlight bashAdminStatement
-  "highlight kshSpecialVariables
-  "highlight kshStatement
-  "highlight shSetIdentifier
-  "highlight shFunctionTwo
-  "highlight shFunctionStart
-  "highlight shFunctionOne
-  "highlight shDerefPattern
-  "highlight shDerefEscape
-  "highlight shDerefPPSleft
-  "highlight shDerefPPSright
-  "highlight shCaseEsacSync
-  "highlight shDoSync
-  "highlight shForSync
-  "highlight shIfSync
-  "highlight shUntilSync
-  "highlight shWhileSync
-
-" Style for Ruby Syntax
-" ---------------------
-  highlight rubyBlockParameter        guifg=#FFFFFF
-  highlight rubyClass                 guifg=#FFFFFF
-  highlight rubyConstant              guifg=#DA4939
-  highlight rubyInstanceVariable      guifg=#D0D0FF
-  highlight rubyInterpolation         guifg=#519F50
-  highlight rubyLocalVariableOrMethod guifg=#D0D0FF
-  highlight rubyPredefinedConstant    guifg=#DA4939
-  highlight rubyPseudoVariable        guifg=#FFC66D
-  highlight rubyStringDelimiter       guifg=#A5C261
-
-" Style for XML and (X)HTML Syntax
-  highlight xmlTag                    guifg=#E8BF6A
-  highlight xmlTagName                guifg=#E8BF6A
-  highlight xmlEndTag                 guifg=#E8BF6A
-
-  highlight htmlTitle                 cterm=bold,standout gui=bold
-
-  highlight link htmlTag              xmlTag
-  highlight link htmlTagName          xmlTagName
-  highlight link htmlEndTag           xmlEndTag
-
-  highlight link htmlH1               htmlTitle
-
+if s:config.colors <= 16
+  highlight Comment    ctermfg=DarkGray
+  highlight CursorLine term=underline cterm=underline ctermbg=NONE
+endif

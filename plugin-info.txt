@@ -1,0 +1,8 @@
+{
+  "name" : "darkdevel",
+  "version" : "v1.2.0",
+  "author" : "Hallison Batista <hallison.batista@gmail.com>",
+  "repository" : {"type": "git", "url": "http://github.com/depuracao/vim-darkdevel.git"},
+  "dependencies" : {},
+  "description" : "Dark color scheme for Vim editor"
+}
