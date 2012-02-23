@@ -6,9 +6,9 @@ sourcedir = src
 prefix    = $(HOME)/.vim
 colorsdir = $(prefix)/colors
 
-plugin  = darkdevel
-version = $(shell git tag | sort | tail -1 | tr -d "[v\n]")
-release = $(shell git log v$(version) --format="%ai" | head -1 | tr -d "\n")
+plugin   = darkdevel
+version ?= $(shell git tag | sort | tail -1 | tr -d "[v\n]")
+release ?= $(shell git log v$(version) --format="%ai" | head -1 | tr -d "\n")
 
 scripts = $(basedir)/colors/$(plugin).vim
 docs    = $(basedir)/README.mkd \

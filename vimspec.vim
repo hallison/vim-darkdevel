@@ -6,8 +6,8 @@ let b:plugin.language = "Vim"
 let b:plugin.author   = "Hallison Batista <hallison.batista@gmail.com>"
 let b:plugin.url      = "http://github.com/depuracao/vim-darkdevel"
 let b:plugin.scm      = "http://github.com/depuracao/vim-darkdevel.git"
-let b:plugin.version  = system("git tag | sort | tail -1 | tr -d '[v\n]'")
-let b:plugin.release  = system("git log --format='%ai%n' v".b:plugin.version."| head -1 | tr -d '\n'")
+let b:plugin.version  = $version
+let b:plugin.release  = $release
 let b:plugin.remark   = "Dark color scheme for Vim editor"
 
 execute 1
