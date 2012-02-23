@@ -1,0 +1,9 @@
+==============================================================================
+Darkdevel v2.0.0
+
+* Fully rewritten to support 8, 16 and 256 colors in XTerm.
+* New development structure.
+
+For more information about this plugin, please, visit the repository hosted
+on Github (http://github.com/depuracao/vim-darkdevel).
+
