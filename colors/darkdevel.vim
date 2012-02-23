@@ -2,8 +2,8 @@
 "
 " Name:    darkdevel
 " Autor:   Hallison Batista <hallison.batista@gmail.com>
-" Version: v1.2.0
-" Release: 2010-01-15 18:21:11 -0400
+" Version: 2.0.0
+" Release: 2012-02-22 23:37:22 -0400
 " License: Vim License
 
 highlight clear
