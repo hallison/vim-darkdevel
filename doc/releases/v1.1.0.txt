@@ -1,0 +1,8 @@
+==============================================================================
+Darkdevel v1.1.0
+
+Update colors and adding new files.
+
+* The color of column and row of the cursor were darkened.
+* A script was added for packaging.
+

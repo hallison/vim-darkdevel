@@ -1,0 +1,11 @@
+==============================================================================
+Darkdevel v1.1.1
+
+Fixes and updates in colors.
+
+* Colors fixes.
+* Improve color cursor line.
+* The color line and the menu have changed.
+* Colors were added in text messages.
+* Added screenshots to preview.
+

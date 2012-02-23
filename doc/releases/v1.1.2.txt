@@ -1,0 +1,6 @@
+==============================================================================
+Darkdevel v1.1.2
+
+Fixes in colors, again.
+
+* Fix highlight title color.

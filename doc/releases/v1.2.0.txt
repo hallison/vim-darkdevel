@@ -1,0 +1,11 @@
+==============================================================================
+Darkdevel v1.2.0
+
+* Small improvements in HTML and comment colors.
+* The package build file was replaced by taskfile.
+* Removing unnecessary files.
+* Added file for listing packages files.
+
+For more information about this plugin, please, visit the repository hosted
+on Github (http://github.com/depuracao/vim-darkdevel).
+
