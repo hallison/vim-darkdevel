@@ -1,0 +1,38 @@
+Vim - Darkdevel
+===============
+
+# DESCRIPTION
+
+This color scheme supports the 8, 16 and 256 colors in XTerm mode.
+
+# INSTALL
+
+You cant install this color scheme downloading the Vimball gzipped from script
+[page][1] and type de command:
+
+    vim -ne b:plugin.name-b:plugin.version.vba.gz +'source %' +'quit'
+
+Or checkout the Git repository hosted on [Github][2]:
+
+    git clone --branch develop b:plugin.scm
+    cd vim-b:plugin.name
+    make install
+
+If you want other method, try the [pathogen plugin][3]:
+
+    cd ~/.vim/bundle
+    git clone --branch master b:plugin.scm
+
+[1]: http://www.vim.org/scripts/script.php?script_id=2573
+  "Vim - Darkdevel script page"
+[2]: b:plugin.url
+  "Vim -Darkdevel repository"
+[3]: http://github.com/tpope/vim-pathogen
+  "Vim - Pathogen to bundle plugins"
+
+# LICENSE
+
+Copyright (c) 2009-2012 b:plugin.author
+
+This plugin is distributed under the Vim License terms. See `:help license`.
+
